@@ -1,7 +1,169 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Oswald:wght@200;300;400;500;600;700&display=swap");
+
 * {
 	padding: 0;
 	margin: 0;
 	list-style: none;
 	box-sizing: border-box;
 	text-decoration: none;
+}
+
+body {
+	font-family: "Open Sans", sans-serif;
+}
+
+a {
+	color: #333;
+}
+
+/*************************** Container ***************************/
+.container {
+	width: 100%;
+	min-height: 100vh;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 90px auto 400px;
+	grid-template-rows: 60px auto;
+	grid-template-areas:
+		"header			header		header"
+		"sidebar		main 			thumbnail";
+	transition: all 0.3s ease;
+}
+
+.container.active {
+	grid-template-columns: minmax(300px, 18%) auto 400px;
+}
+
+/*************************** Header ***************************/
+.header {
+	grid-area: header;
+	padding: 0 20px;
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+	grid-template-areas: "logo 		search-bar	icons";
+}
+
+/* container logo */
+.header .container-logo {
+	grid-area: logo;
+	display: flex;
+	align-items: center;
+}
+
+.header .container-logo .btn-menu {
+	border: none;
+	padding: 10px;
+	background: none;
+	cursor: pointer;
+	font-size: 18px;
+	border-radius: 100px;
+	width: 50px;
+	height: 50px;
+	margin-right: 20px;
+	transition: all 0.3s ease-in-out;
+}
+
+.header .container-logo .btn-menu:hover {
+	background-color: #e7e7e7;
+}
+
+.header .container-logo .logo .fas {
+	background-color: #ff0000;
+	padding: 7px 12px;
+	border-radius: 4px;
+	font-size: 8px;
+	color: #fff;
+	position: relative;
+	top: -2px;
+	margin-right: 4px;
+}
+
+.header .container-logo .logo {
+	font-size: 20px;
+}
+
+.header .search-bar {
+	grid-area: search-bar;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.header .search-bar input {
+	min-width: 60%;
+	padding: 0 15px;
+	height: 35px;
+	line-height: 35px;
+	border: 1px solid #ccc;
+	font-size: 16px;
+	outline: none;
+	font-family: "Open Sans", sans-serif;
+}
+
+.header .search-bar button {
+	height: 35px;
+	border: 1px solid #ccc;
+	border-left: none;
+	color: #545454;
+	background: #f8f8f8;
+	padding: 0 25px;
+	cursor: pointer;
+}
+
+.header .header-btns {
+	grid-area: icons;
+	display: flex;
+	align-items: center;
+}
+
+.header .header-btns button {
+	background: none;
+	border: none;
+	width: 40px;
+	height: 40px;
+	font-size: 18px;
+	padding: 7px 12px;
+	border-radius: 100px;
+	color: #828282;
+	margin-right: 20px;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+}
+
+.header .header-btns button:hover {
+	background: #e7e7e7;
+}
+
+.header .header-btns .avatar {
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+}
+
+.header .header-btns .avatar img {
+	width: 100%;
+	height: 100%;
+	vertical-align: top;
+	border-radius: 100px;
+}
+
+/*************************** Sidebar ***************************/
+.sidebar {
+	grid-area: sidebar;
+	background-color: tomato;
+}
+
+/*************************** Header ***************************/
+.main {
+	grid-area: main;
+	background-color: #666;
+}
+
+/*************************** Header ***************************/
+.thumbnail {
+	grid-area: thumbnail;
+	background-color: #444;
 }
